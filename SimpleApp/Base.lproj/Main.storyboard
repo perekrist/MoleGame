@@ -19,19 +19,43 @@
                                 <rect key="frame" x="422.5" y="186.5" width="51" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="StartBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SLy-Le-MYc"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1X-uR-yCz">
+                                <rect key="frame" x="845" y="15" width="31" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 pts." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmI-xl-Srs">
+                                <rect key="frame" x="64" y="15" width="62" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Q1X-uR-yCz" secondAttribute="trailing" constant="20" id="7eI-Ub-jSg"/>
+                            <constraint firstItem="Q1X-uR-yCz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="BVm-8K-2Nd"/>
+                            <constraint firstItem="cmI-xl-Srs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="dhs-T4-8g0"/>
                             <constraint firstItem="cGf-T5-jov" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="e7r-4o-7BO"/>
                             <constraint firstItem="cGf-T5-jov" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g1c-wh-hmT"/>
+                            <constraint firstItem="cmI-xl-Srs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="v03-N9-xAF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="points" destination="cmI-xl-Srs" id="DO1-Vu-Ofl"/>
+                        <outlet property="start" destination="e7r-4o-7BO" id="gDq-UZ-QPe"/>
+                        <outlet property="timer" destination="Q1X-uR-yCz" id="Hec-ui-rEZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="293" y="-677"/>
+            <point key="canvasLocation" x="470" y="-809"/>
         </scene>
     </scenes>
 </document>
