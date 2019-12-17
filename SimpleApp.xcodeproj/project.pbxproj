@@ -13,6 +13,9 @@
 		CA2E845323A78041002F8E71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA2E845123A78041002F8E71 /* Main.storyboard */; };
 		CA2E845523A78042002F8E71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA2E845423A78042002F8E71 /* Assets.xcassets */; };
 		CA2E845823A78042002F8E71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA2E845623A78042002F8E71 /* LaunchScreen.storyboard */; };
+		CA7F800123A94457001EDCA7 /* song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CA7F800023A94456001EDCA7 /* song.mp3 */; };
+		CA7F800423A94A2E001EDCA7 /* good.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CA7F800223A94A2E001EDCA7 /* good.mp3 */; };
+		CA7F800523A94A2E001EDCA7 /* bad.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CA7F800323A94A2E001EDCA7 /* bad.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		CA2E845423A78042002F8E71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA2E845723A78042002F8E71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA2E845923A78042002F8E71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA7F800023A94456001EDCA7 /* song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = song.mp3; path = ../../Downloads/song.mp3; sourceTree = "<group>"; };
+		CA7F800223A94A2E001EDCA7 /* good.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = good.mp3; sourceTree = "<group>"; };
+		CA7F800323A94A2E001EDCA7 /* bad.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bad.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,9 @@
 		CA2E844A23A78041002F8E71 /* SimpleApp */ = {
 			isa = PBXGroup;
 			children = (
+				CA7F800323A94A2E001EDCA7 /* bad.mp3 */,
+				CA7F800223A94A2E001EDCA7 /* good.mp3 */,
+				CA7F800023A94456001EDCA7 /* song.mp3 */,
 				CA2E844B23A78041002F8E71 /* AppDelegate.swift */,
 				CA2E844D23A78041002F8E71 /* SceneDelegate.swift */,
 				CA2E844F23A78041002F8E71 /* ViewController.swift */,
@@ -125,7 +134,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA7F800523A94A2E001EDCA7 /* bad.mp3 in Resources */,
 				CA2E845823A78042002F8E71 /* LaunchScreen.storyboard in Resources */,
+				CA7F800423A94A2E001EDCA7 /* good.mp3 in Resources */,
+				CA7F800123A94457001EDCA7 /* song.mp3 in Resources */,
 				CA2E845523A78042002F8E71 /* Assets.xcassets in Resources */,
 				CA2E845323A78041002F8E71 /* Main.storyboard in Resources */,
 			);

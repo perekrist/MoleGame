@@ -27,15 +27,21 @@
                                     <action selector="StartBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SLy-Le-MYc"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1X-uR-yCz">
-                                <rect key="frame" x="845" y="15" width="31" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seconds: 60" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1X-uR-yCz">
+                                <rect key="frame" x="728" y="15" width="138" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 pts." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmI-xl-Srs">
-                                <rect key="frame" x="64" y="15" width="62" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0 pts." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmI-xl-Srs">
+                                <rect key="frame" x="64" y="10" width="120.5" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best: 0 pts." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dir-TK-h5z">
+                                <rect key="frame" x="64" y="41.5" width="108.5" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -43,26 +49,29 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="sfd-yb-ctC" secondAttribute="trailing" id="05L-Qv-4cR"/>
-                            <constraint firstAttribute="trailing" secondItem="Q1X-uR-yCz" secondAttribute="trailing" constant="20" id="7eI-Ub-jSg"/>
+                            <constraint firstAttribute="trailing" secondItem="Q1X-uR-yCz" secondAttribute="trailing" constant="30" id="7eI-Ub-jSg"/>
                             <constraint firstItem="Q1X-uR-yCz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="BVm-8K-2Nd"/>
                             <constraint firstItem="sfd-yb-ctC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="EGl-cf-b4Z"/>
+                            <constraint firstItem="Dir-TK-h5z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="FEo-ix-aBo"/>
+                            <constraint firstItem="cGf-T5-jov" firstAttribute="centerX" secondItem="sfd-yb-ctC" secondAttribute="centerX" id="JAq-0f-eaB"/>
                             <constraint firstItem="cGf-T5-jov" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="Z6V-4s-KpM"/>
                             <constraint firstItem="cmI-xl-Srs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="dhs-T4-8g0"/>
                             <constraint firstItem="sfd-yb-ctC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="eUu-sw-ZbN"/>
                             <constraint firstAttribute="bottom" secondItem="sfd-yb-ctC" secondAttribute="bottom" id="n0U-rf-qfg"/>
-                            <constraint firstItem="cGf-T5-jov" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ob8-6P-kcx"/>
-                            <constraint firstItem="cmI-xl-Srs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="v03-N9-xAF"/>
+                            <constraint firstItem="cmI-xl-Srs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="v03-N9-xAF"/>
+                            <constraint firstItem="Dir-TK-h5z" firstAttribute="top" secondItem="cmI-xl-Srs" secondAttribute="bottom" constant="5" id="zZ5-yI-d86"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="best" destination="Dir-TK-h5z" id="qoX-VX-HMu"/>
                         <outlet property="points" destination="cmI-xl-Srs" id="DO1-Vu-Ofl"/>
                         <outlet property="timer" destination="Q1X-uR-yCz" id="Hec-ui-rEZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="270.53571428571428" y="-884.05797101449286"/>
+            <point key="canvasLocation" x="270" y="-1070"/>
         </scene>
     </scenes>
 </document>
