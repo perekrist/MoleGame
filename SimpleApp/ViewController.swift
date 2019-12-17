@@ -23,30 +23,30 @@ class ViewController: UIViewController {
     var a = 4
     var b = 3
     var timeInt = 1.0
-
+    var index = 1
+    var mole = 0
     @IBAction func StartBtn(_ sender: Any) {
-        let btn = self.view.viewWithTag(0) as? UIButton
-        btn?.isHidden = true
         let alert = UIAlertController(title: "Set configurations", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 
         alert.addTextField(configurationHandler: { textField in
             textField.placeholder = "1 - easy, 2 - medium, 3 - hard"
+            textField.keyboardType = UIKeyboardType.numberPad
         })
 
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             if alert.textFields?.first?.text == "1" {
                 self.a = 3
                 self.b = 2
-                self.timeInt = 1.0
+                self.timeInt = 1.3
             } else  if alert.textFields?.first?.text == "2" {
                 self.a = 4
                 self.b = 3
-                self.timeInt = 0.7
+                self.timeInt = 1.0
             } else {
                 self.a = 5
                 self.b = 4
-                self.timeInt = 0.5
+                self.timeInt = 0.7
             }
             self.restart()
         }))
@@ -72,8 +72,6 @@ class ViewController: UIViewController {
             let alert = UIAlertController(title: "Time over", message: "Your score \(pts) pts.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Restart", style: .default, handler: {action in
                 self.restart()
-                let btn = self.view.viewWithTag(0) as? UIButton
-                btn?.isHidden = false
                 }))
             self.present(alert, animated: true, completion: nil)
             time.invalidate()
@@ -85,8 +83,6 @@ class ViewController: UIViewController {
             let alert = UIAlertController(title: "Game over", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Restart", style: .default, handler: {action in
                 self.restart()
-                let btn = self.view.viewWithTag(0) as? UIButton
-                btn?.isHidden = false
             }))
             self.present(alert, animated: true, completion: nil)
         }
@@ -96,7 +92,6 @@ class ViewController: UIViewController {
         let padding = 20
         let pX = 100
         let pY = 70
-        var index = 1
         for i in 0..<a {
             for j in 0..<b {
                 let buttonWidth = (Int(screenWidth) - pX) / a - padding
@@ -109,7 +104,6 @@ class ViewController: UIViewController {
                 button.frame = CGRect(x: buttonX, y: buttonY, width: buttonWidth, height: buttonHeight)
                 button.tintColor = .white
                 button.tag = index
-                print(index)
                 index += 1
                 button.setImage(UIImage(named: "boxC")?.withRenderingMode(.alwaysOriginal), for: .normal)
                 self.view.addSubview(button)
@@ -118,13 +112,16 @@ class ViewController: UIViewController {
     }
     
     @objc func randMole() {
-        let r = Int.random(in: 1..<a * b + 1)
+        closeAllBoxes()
+        let r = Int.random(in: 1...index)
+        mole = r
         let hole = self.view.viewWithTag(r) as? UIButton
         hole?.setImage(UIImage(named: "boxO")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        hole?.setTitle(" ", for: .normal)
     }
     
     @objc func buttonClicked(sender : UIButton){
-        if true {
+        if sender.tag == mole {
             pts += 1
             sender.setImage(UIImage(named: "boxC")?.withRenderingMode(.alwaysOriginal), for: .normal)
         } else {
@@ -134,17 +131,26 @@ class ViewController: UIViewController {
     }
         
     func restart() {
+        time.invalidate()
+        moleTime.invalidate()
         pts = 0
         points.text = "\(self.pts) pts."
         seconds = 60
         timer.text = "\(self.seconds)"
-        for i in 1..<a * b + 1 {
-//            print(i)
+        runTimer()
+        runMoleTimer()
+        for i in 1...index {
             let button = self.view.viewWithTag(i) as? UIButton
             button?.removeFromSuperview()
         }
+        index = 1
         drawHoles()
-        runTimer()
-        runMoleTimer()
+    }
+    
+    func closeAllBoxes() {
+        for i in 1...index {
+            let button = self.view.viewWithTag(i) as? UIButton
+            button?.setImage(UIImage(named: "boxC")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        }
     }
 }
