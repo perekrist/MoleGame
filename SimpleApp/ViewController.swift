@@ -35,42 +35,44 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let song = Bundle.main.path(forResource: "song", ofType: "mp3")
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: song!))
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default, options: [AVAudioSession.CategoryOptions.mixWithOthers])
-        } catch {
-            print(error)
-        }
-        audioPlayer.play()
     }
     
     @IBAction func StartBtn(_ sender: Any) {
-        let alert = UIAlertController(title: "Set configurations", message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-
-        alert.addTextField(configurationHandler: { textField in
-            textField.placeholder = "1 - easy, 2 - medium, 3 - hard"
-            textField.keyboardType = UIKeyboardType.numberPad
-        })
-
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-            if alert.textFields?.first?.text == "1" {
-                self.a = 3
-                self.b = 2
-                self.timeInt = 1.3
-            } else  if alert.textFields?.first?.text == "2" {
-                self.a = 4
-                self.b = 3
-                self.timeInt = 1.0
-            } else {
-                self.a = 5
-                self.b = 4
-                self.timeInt = 0.7
-            }
-            self.restart()
-        }))
-        self.present(alert, animated: true)
+        let optionMenu = UIAlertController(title: nil, message: "Choose Difficulty", preferredStyle: .actionSheet)
+               
+        let easy = UIAlertAction(title: "Easy", style: .default, handler: self.easy)
+        let medium = UIAlertAction(title: "Medium", style: .default, handler: self.medium)
+        let hard = UIAlertAction(title: "Hard", style: .default, handler: self.hard)
+               
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+               
+        optionMenu.addAction(easy)
+        optionMenu.addAction(medium)
+        optionMenu.addAction(hard)
+        optionMenu.addAction(cancelAction)
+               
+        self.present(optionMenu, animated: true, completion: nil)
+    }
+    
+    func easy(alert: UIAlertAction!) {
+        self.a = 3
+        self.b = 2
+        self.timeInt = 1.3
+        self.restart()
+    }
+    
+    func medium(alert: UIAlertAction!) {
+        self.a = 4
+        self.b = 3
+        self.timeInt = 1.0
+        self.restart()
+    }
+    
+    func hard(alert: UIAlertAction!) {
+        self.a = 5
+        self.b = 4
+        self.timeInt = 0.7
+        self.restart()
     }
     
     func runTimer() {
@@ -90,6 +92,7 @@ class ViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "Restart", style: .default, handler: {action in
                 self.restart()
                 }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             self.present(alert, animated: true, completion: nil)
             time.invalidate()
         }
@@ -98,9 +101,10 @@ class ViewController: UIViewController {
             moleTime.invalidate()
             time.invalidate()
             let alert = UIAlertController(title: "Game over", message: nil, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Restart", style: .default, handler: {action in
+            alert.addAction(UIAlertAction(title: "Restart", style: .default, handler: { action in
                 self.restart()
             }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             self.present(alert, animated: true, completion: nil)
         }
     }
